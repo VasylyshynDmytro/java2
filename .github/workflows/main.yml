@@ -22,10 +22,9 @@ jobs:
         java-version: '11'
 
     - name: Set up Maven
-      uses: actions/setup-java@v2
+      uses: apache/maven@v3 
       with:
-        distribution: 'maven'
-        java-version: '3.8.4'  # You can adjust the Maven version
+        maven-version: '3.8.4'  
 
     - name: Install Dependencies
       run: mvn install
@@ -48,5 +47,3 @@ jobs:
 
     - name: Display Git status
       run: git status
-
-# You can add more steps as needed for your specific project.
