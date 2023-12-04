@@ -15,6 +15,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         distribution: "zulu"
+        java-version: "11"  
 
     - name: Show Java version
       run: java -version
@@ -26,7 +27,7 @@ jobs:
       run: ls -a
 
     - name: Install Dependencies
-      run: ./mvnw compile  # Assuming you're using Maven, adjust if you're using a different build tool
+      run: ./mvnw compile  
 
     - name: Build application
       run: ./mvnw package -DskipTests
