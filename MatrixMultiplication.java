@@ -7,8 +7,6 @@ public class MatrixMultiplication {
 
     public static void main(String[] args) {
         int size = 3000;
-
-
         int[][] matrixA = generateRandomMatrix(size, size);
         int[][] matrixB = generateRandomMatrix(size, size);
 
