@@ -1,4 +1,4 @@
-name: CI/CD
+name: Continuous Integration
 
 on:
   push:
@@ -7,19 +7,29 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  my_first_job:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Setup JDK
+    - name: Set up Java
       uses: actions/setup-java@v2
       with:
-        distribution: 'adopt'
-        java-version: '11'
+        distribution: "zulu"
 
-    - name: Build and test
-      run: |
-        ./gradlew build
+    - name: Show Java version
+      run: java -version
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: List files
+      run: ls -a
+
+    - name: Install Dependencies
+      run: ./mvnw compile  # Assuming you're using Maven, adjust if you're using a different build tool
+
+    - name: Build application
+      run: ./mvnw package -DskipTests
+
+    - name: Test application
+      run: ./mvnw test
