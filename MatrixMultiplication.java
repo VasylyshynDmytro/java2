@@ -9,9 +9,7 @@ public class MatrixMultiplication {
         int size = 3000;
         int[][] matrixA = generateRandomMatrix(size, size);
         int[][] matrixB = generateRandomMatrix(size, size);
-
         int[][] result = new int[size][size];
-
         int numThreads = 30;
         ExecutorService executorService = Executors.newFixedThreadPool(numThreads);
 
