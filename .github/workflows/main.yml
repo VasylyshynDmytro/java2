@@ -47,3 +47,14 @@ jobs:
 
     - name: Display Git status
       run: git status
+
+    - name: Update the script, create a new branch, and push changes
+      run: |
+        git checkout -b feature-branch
+        echo "New changes" >> sample.txt  
+        git add .
+        git commit -m "Add new changes"
+        git push origin feature-branch
+
+    - name: Create and accept a pull request
+      run: gh pr create --base main --head feature-branch --title "New Pull Request" --body "Changes for review"
